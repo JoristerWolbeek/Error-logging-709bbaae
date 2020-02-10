@@ -15,15 +15,14 @@
 <?php
 
 
-$getal = 0 ;
+$getal;
 $getal = $_POST["number"];
 countDown($getal);
 
 function countDown($getal){
     try {
-        if(!$getal) throw new Exception ("Er is geen getal meegegeven.");
-        if($getal > 0) throw new Exception ("er is een te groot getal gegeven.");
-        if($getal < 10) throw new Exception ("er is een te klein getal gegeven.");
+        if($getal <= 0) throw new Exception ("er is een te klein getal gegeven.");
+        if($getal > 10) throw new Exception ("er is een te groot getal gegeven.");
     } catch (Exception $ex) {
         error_log($ex, 3, "error_log.php");
     } 
